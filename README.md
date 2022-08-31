@@ -1,2 +1,2 @@
 # mentiunq-backend
-Backend de la apps mentiunq 
+Backend of the apps mentiunq 
