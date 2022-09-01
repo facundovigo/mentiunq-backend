@@ -1,0 +1,6 @@
+# mentiunq-backend
+Backend of the apps mentiunq 
+# Install eviroment 
+1) python3 -m v tutorial-env
+2) source menti-env/bin/activate
+
