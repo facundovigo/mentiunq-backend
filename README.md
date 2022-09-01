@@ -13,6 +13,6 @@ Backend of the apps mentiunq
 # we raise the server
  python manage.py runserver
 
-###raises on the following socket localhost:8000
+## raises on the following socket localhost:8000
 
 
