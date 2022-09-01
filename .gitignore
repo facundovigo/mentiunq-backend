@@ -1,0 +1,9 @@
+*.pyc
+/uploads/*
+*.idea/
+env/
+.env
+.coverage
+db.sqlite3
+
+!/uploads/.gitkeep
