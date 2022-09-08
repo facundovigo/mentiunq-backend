@@ -150,3 +150,5 @@ CORS_ALLOW_HEADERS = (
     'x-requested-with',
     'Pragma',
 )
+
+CSRF_TRUSTED_ORIGINS = ["https://menti-unq-backend.herokuapp.com/"]
