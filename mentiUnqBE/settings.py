@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-66&-2r*!)g6_(n+1u5u3x$*vd(2lhiru-yyeki_kh!$7zl8$u@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['menti-unq-backend.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
