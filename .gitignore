@@ -2,6 +2,7 @@
 /uploads/*
 *.idea/
 env/
+menti-env/
 .env
 .coverage
 db.sqlite3
