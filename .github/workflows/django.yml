@@ -7,9 +7,9 @@ on:
     branches: [ "main", "dev" ]
 
 env:
-  DB_DATABASE: postgres
-  DB_USERNAME: postgres
-  DB_PASSWORD: postgres
+  DB_DATABASE: mentiunq
+  DB_USERNAME: mentiunq
+  DB_PASSWORD: mentiunq
   DB_HOST: 127.0.0.1
   DB_PORT: 5432
 
