@@ -80,18 +80,21 @@ WSGI_APPLICATION = 'mentiUnqBE.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
-    'default': dj_database_url.config(
-        default=config('DATABASE_URL')
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': config('DB_DATABASE'),
+        'USER': config('DB_USERNAME'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
+    }
 }
+# this is for heroku, we want to use previously config
+#    'default': dj_database_url.config(
+#        default=config('DATABASE_URL')
+#    )
+
 
 if os.environ.get('GITHUB_WORKFLOW'):
     DATABASES = {
@@ -183,7 +186,7 @@ CORS_ALLOW_HEADERS = (
 
 CSRF_TRUSTED_ORIGINS = ['https://menti-backend.herokuapp.com']
 
-CORS_ORIGIN_WHITELIST = (
+CORS_ORIGIN_WHITELIST = [
   'https://menti-backend.herokuapp.com',
-)
+]
 
