@@ -5,20 +5,19 @@ Production Settings for Heroku
 import environ
 
 # If using in your own project, update the project namespace below
-from mentiUnqBE.settings.base import *
 
 env = environ.Env(
     # set casting, default value
-    DEBUG=(bool, False)
+    DEBUG=(bool, True) #(bool, False)
 )
 
 # False if not in os.environ
-DEBUG = env('DEBUG')
+DEBUG = True # env('DEBUG')
 
 # Raises django's ImproperlyConfigured exception if SECRET_KEY not in os.environ
 SECRET_KEY = env('SECRET_KEY')
 
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
+ALLOWED_HOSTS = ['*'] # env.list('ALLOWED_HOSTS')
 
 # Parse database connection url strings like psql://user:pass@127.0.0.1:8458/db
 DATABASES = {
