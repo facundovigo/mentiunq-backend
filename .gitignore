@@ -5,6 +5,7 @@ env/
 menti-env/
 .env
 .coverage
-db.sqlite3
+__pycache__
+gettingstarted/static/
 
 !/uploads/.gitkeep

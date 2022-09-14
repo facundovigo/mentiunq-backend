@@ -45,13 +45,13 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 TATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
@@ -100,7 +100,7 @@ if os.environ.get('GITHUB_WORKFLOW'):
     DATABASES = {
         'default': {
            'ENGINE': 'django.db.backends.postgresql',
-           'NAME': 'github_actions',
+           'NAME': 'postgres',
            'USER': 'postgres',
            'PASSWORD': 'postgres',
            'HOST': '127.0.0.1',
@@ -190,3 +190,4 @@ CORS_ORIGIN_WHITELIST = [
   'https://menti-backend.herokuapp.com',
 ]
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
