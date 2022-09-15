@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'slide_show.apps.SlideShowConfig',
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
@@ -51,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
 ]
 
@@ -185,6 +187,7 @@ CORS_ALLOW_HEADERS = (
     'Pragma',
 )
 
+CORS_ALLOWED_ORIGINS = ['*']
 
 CSRF_TRUSTED_ORIGINS = ['https://menti-backend.herokuapp.com']
 
@@ -192,3 +195,6 @@ CORS_ORIGIN_WHITELIST = (
   'https://menti-unq.herokuapp.com',
 )
 
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^https://\w+\.example\.com$",
+]
