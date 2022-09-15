@@ -87,10 +87,12 @@ WSGI_APPLICATION = 'mentiUnqBE.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    'default': dj_database_url.config(
-        default=config('DATABASE_URL')
-    )
+
+if os.environ.get('ENTORNO'):
+    DATABASES = {
+        'default': dj_database_url.config(
+            default=config('DATABASE_URL')
+        )
 }
 
 # Password validation
@@ -101,7 +103,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': 'django.contrib.auth.passworhttps://menti-backend.herokuapp.comd_validation.MinimumLengthValidator',
     },
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
@@ -169,9 +171,9 @@ CORS_ALLOW_HEADERS = (
 )
 
 
-CSRF_TRUSTED_ORIGINS = ['https://menti-backend.herokuapp.com', 'https://menti-unq.herokuapp.com/']
+CSRF_TRUSTED_ORIGINS = ['https://menti-backend.herokuapp.com']
 
 CORS_ORIGIN_WHITELIST = (
-  'https://menti-unq.herokuapp.com/',
+  'https://menti-unq.herokuapp.com',
 )
 
