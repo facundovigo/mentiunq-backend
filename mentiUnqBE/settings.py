@@ -193,7 +193,6 @@ CSRF_TRUSTED_ORIGINS = ['https://menti-backend.herokuapp.com']
 
 CORS_ORIGIN_WHITELIST = (
   'https://menti-unq.herokuapp.com',
-  'localhost:5432'
 )
 
 CORS_ALLOWED_ORIGIN_REGEXES = [
