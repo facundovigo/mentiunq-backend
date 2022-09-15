@@ -169,9 +169,9 @@ CORS_ALLOW_HEADERS = (
 )
 
 
-CSRF_TRUSTED_ORIGINS = ['https://menti-backend.herokuapp.com']
+CSRF_TRUSTED_ORIGINS = ['https://menti-backend.herokuapp.com', 'https://menti-unq.herokuapp.com/']
 
 CORS_ORIGIN_WHITELIST = (
-  'https://menti-backend.herokuapp.com',
+  'https://menti-unq.herokuapp.com/',
 )
 
