@@ -119,7 +119,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.passworhttps://menti-backend.herokuapp.comd_validation.MinimumLengthValidator',
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
@@ -193,6 +193,8 @@ CSRF_TRUSTED_ORIGINS = ['https://menti-backend.herokuapp.com']
 
 CORS_ORIGIN_WHITELIST = (
   'https://menti-unq.herokuapp.com',
+  'localhost:5432',
+  '127.0.0.1:5432'
 )
 
 CORS_ALLOWED_ORIGIN_REGEXES = [
