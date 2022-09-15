@@ -45,13 +45,13 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 TATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
@@ -78,22 +78,36 @@ WSGI_APPLICATION = 'mentiUnqBE.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': config('DB_DATABASE'),
+        'USER': config('DB_USERNAME'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
+    }
+}
 
 if os.environ.get('ENTORNO'):
     DATABASES = {
         'default': dj_database_url.config(
             default=config('DATABASE_URL')
         )
-}
+    }
+
+if os.environ.get('GITHUB_WORKFLOW'):
+    DATABASES = {
+        'default': {
+           'ENGINE': 'django.db.backends.postgresql',
+           'NAME': 'postgres',
+           'USER': 'postgres',
+           'PASSWORD': 'postgres',
+           'HOST': '127.0.0.1',
+           'PORT': '5432',
+        }
+    }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -177,3 +191,4 @@ CORS_ORIGIN_WHITELIST = (
   'https://menti-unq.herokuapp.com',
 )
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
