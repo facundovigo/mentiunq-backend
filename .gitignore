@@ -1,5 +1,6 @@
 *.pyc
 /uploads/*
+/data/*
 *.idea/
 env/
 menti-env/
