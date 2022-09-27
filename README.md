@@ -6,10 +6,13 @@ Backend of the apps mentiunq
 ## Two ways to init the project
 
 ## Easy way
-### We create docker container
-`docker build --tag mentiunq .`
-### we raise the server
-`docker run --publish 8000:8000 mentiunq`
+### We create docker container and raise server on 8000
+`sudo docker-compose up -d --build`
+### To run commands in `manage.py`
+#### Now we must use it after `docker-compose exec web`
+#### eg ***Migrate:*** `docker-compose exec web python manage.py migrate`
+ 
+
 
 ## The dark side
 ### Create a venv with the version of python to use
