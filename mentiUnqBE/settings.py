@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'slide_show.apps.SlideShowConfig',
+    'rest_framework.authtoken',
     "corsheaders",
+    "users",
 ]
 
 MIDDLEWARE = [
@@ -81,16 +83,16 @@ WSGI_APPLICATION = 'mentiUnqBE.wsgi.application'
 
 # Database
 
-    # DATABASES = {
-    #     'default': {
-    #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #         'NAME': config('DB_DATABASE'),
-    #         'USER': config('DB_USERNAME'),
-    #         'PASSWORD': config('DB_PASSWORD'),
-    #         'HOST': config('DB_HOST'),
-    #         'PORT': config('DB_PORT'),
-    #     }
-    # }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': config('DB_DATABASE'),
+        'USER': config('DB_USERNAME'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
+    }
+}
 
 if os.environ.get('GITHUB_WORKFLOW'):
     DATABASES = {
@@ -181,7 +183,7 @@ CORS_ALLOW_HEADERS = (
     'content-type',
     'dnt',
     'origin',
-    'user-agent',
+    'users-agent',
     'x-csrftoken',
     'x-requested-with',
     'Pragma',
@@ -198,3 +200,10 @@ CORS_ORIGIN_WHITELIST = (
 CORS_ALLOWED_ORIGIN_REGEXES = [
     r"^https://\w+\.example\.com$",
 ]
+
+AUTH_USER_MODEL = 'users.CustomUser'
+AUTH_WITH_EMAIL = True
+AUTHENTICATION_BACKENDS = (
+    'users.backends.EmailAuthBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
