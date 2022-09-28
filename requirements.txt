@@ -4,8 +4,14 @@ dj-database-url==1.0.0
 Django==4.1
 djangorestframework==3.14
 django-cors-headers==3.13.0
+django-environ==0.9.0
+django-filter==22.1
 gunicorn==20.1.0
+importlib-metadata==4.12.0
+Markdown==3.4.1
 psycopg2-binary==2.9.3
 python-decouple==3.6
+pytz==2022.2.1
 sqlparse==0.4.2
 whitenoise==6.2.0
+zipp==3.8.1
