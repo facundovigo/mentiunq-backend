@@ -2,6 +2,7 @@
 /uploads/*
 /data/*
 *.idea/
+/data/*
 env/
 menti-env/
 .env
