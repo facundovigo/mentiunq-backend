@@ -16,19 +16,9 @@ class SlideShow(models.Model):
             models.Index(fields=['secret_number', 'user'])
         ]
         unique_together = ('secret_number', 'user')
-#    def __init__(self,  *args, **kwargs):
-#        print("ey")
-#        secret_number = randint(0, 999)
-#        self.secret_number = secret_number
-#        super().__init__(*args, **kwargs)
 
     def __str__(self):
         return f'{self.title} Slide show number: {self.secret_number}.'
-
-    def save(self, *args, **kwargs):
-        if self.secret_number is None:
-            self.secret_number = randint(1, 9999)
-        super(SlideShow, self).save(*args, *kwargs)
 
     def set_new_title(self, new_title):
         self.title = new_title
