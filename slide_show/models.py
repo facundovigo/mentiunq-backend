@@ -27,6 +27,7 @@ class SlideShow(models.Model):
         self.pk = None
         self.secret_number = randint(1, 9999)
         self.save()
+        return self.secret_number
 
     def share(self):
         return self.secret_number

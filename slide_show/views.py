@@ -22,3 +22,11 @@ def create_slide(request):
         secret_number=secret_number
     )
     return HttpResponse(slide.secret_number)
+
+
+def clone_slide(request):
+    data = json.loads(request.body)
+    slide_id = data['slideId']
+    slide = SlideShow.objects.get(id=slide_id)
+    secret_number = slide.clone_slide_show()
+    return HttpResponse(secret_number)
