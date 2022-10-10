@@ -18,7 +18,7 @@ class SlideShowTest(TestCase):
 
     def test_clone_a_slide_show_increment_the_number_of_slides_in_1(self):
         self.slide_show.clone_slide_show()
-        
+
 
         self.assertTrue(SlideShow.objects.count(), 2)
         self.assertTrue(self.slide_show.user, self.user)
