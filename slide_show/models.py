@@ -8,7 +8,6 @@ class SlideShow(models.Model):
     user = models.ForeignKey(to=CustomUser, on_delete=models.CASCADE)
     title = models.CharField(max_length=64, blank=False, default='Title')
     description = models.CharField(max_length=256, default='')
-    time_to_show = models.IntegerField(default=20)
     secret_number = models.IntegerField(blank=False)
 
     class Meta:
@@ -31,3 +30,14 @@ class SlideShow(models.Model):
 
     def share(self):
         return self.secret_number
+
+    def slides(self):
+        slides = Slide.objects.filter(slide_show_id=self.id)
+        return slides
+
+
+class Slide(models.Model):
+    slide_show = models.ForeignKey('SlideShow', on_delete=models.CASCADE,)
+    title = models.CharField(max_length=64)
+    time_to_show = models.IntegerField(default=10)
+
