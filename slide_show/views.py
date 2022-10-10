@@ -14,10 +14,11 @@ def index(request):
 
 def create_slide(request):
     secret_number = randint(1, 9999)
+    data = json.loads(request.body)
     slide = SlideShow(
-        title=request.title,
-        description=request.description,
-        user=request.user,
+        title=data['title'],
+        description=data['description'],
+        user_id=data['user'],
         secret_number=secret_number
     )
     return HttpResponse(slide.secret_number)

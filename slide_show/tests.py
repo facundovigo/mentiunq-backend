@@ -30,7 +30,7 @@ class SlideShowTest(TestCase):
         secret_number = self.slide_show.secret_number
         user = self.slide_show.user
         title = self.slide_show.title
-        
+
         self.slide_show.set_new_title("a new title for slide")
         self.slide_show.save()
 
